@@ -13,32 +13,24 @@
 ActiveRecord::Schema.define(version: 2023_06_07_061614) do
 
   create_table "exercises", force: :cascade do |t|
-    t.integer "workout_id"
     t.string "name"
-    t.string "type"
-    t.string "muscle"
-    t.string "equipment"
     t.integer "sets"
     t.integer "reps"
-    t.string "instructions"
-    t.index ["workout_id"], name: "index_exercises_on_workout_id"
+    t.integer "workout_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.integer "user_id"
     t.string "title"
-    t.text "description"
-    t.datetime "created_at", default: "2023-06-07 12:51:00"
-    t.datetime "updated_at", default: "2023-06-07 12:51:00"
-    t.index ["user_id"], name: "index_workouts_on_user_id"
+    t.string "exercises"
+    t.datetime "created_at", default: "2023-06-13 08:35:07"
+    t.datetime "updated_at", default: "2023-06-13 08:35:07"
   end
 
 end
